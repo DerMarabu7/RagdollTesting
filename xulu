@@ -1,0 +1,10 @@
+local Flux = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/fluxlib.txt")()
+
+local xulu = Flux:Window("XULU", "Ragdoll Testing", Color3.fromRGB(255, 110, 48), Enum.KeyCode.LeftControl)
+local tab = xulu:Tab("Main", "http://www.roblox.com/asset/?id=6023426915")
+tab:Slider("ItemScale", "Changes your item scale", 0, 999,1,function(t)
+    game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_normalscale", t)
+end)
+tab:Slider("Damage", "Changes your Damage Value", 0, 999,1,function(t)
+    game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_damage", t)
+end)
