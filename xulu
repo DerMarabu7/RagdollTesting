@@ -4,9 +4,8 @@ local plr = game.Players.LocalPlayer.Character.Humanoid
 local xulu = Flux:Window("xulu", "Ragdoll Testing", Color3.fromRGB(0, 67, 0), Enum.KeyCode.LeftControl)
 local tab = xulu:Tab("Main", "http://www.roblox.com/asset/?id=6023426915")
 local tab2 = xulu:Tab("Misc", "http://www.roblox.com/asset/?id=6023426915")
-tab:Slider("ItemScale", "Changes your item scale", 0, 9999,1,function(t)
+tab:Slider("ItemScale", "Changes your item scale", 0, 999,1,function(t)
     game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_normalscale", t)
-    game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_titanscale", t)
 end)
 tab:Button("Anti-Ragdoll", "Anti-Ragdoll, needs to be executed every death", function()
     Flux:Notification("Executed Anti-Ragdoll successfully!", "Okay bro")
@@ -29,4 +28,26 @@ Flux:Notification("Disabled SafeZone!", "Okay bro")
 end)
 tab2:Slider("WalkSpeed", "Changes your WalkSpeed", 0, 999,1,function(t)
     plr.WalkSpeed = t
+end)
+getgenv().rainbow = false
+tab2:Button("Rainbow-Nametag", "Needs to be executed every death", function()
+    Flux:Notification("Executed Rainbow-Nametag successfully!, Reset to disable", "Ok bro")
+    while getgenv().rainbow == false do
+game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_nametagcolor", "170, 0, 0")
+wait(1)
+game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_nametagcolor", "170, 85, 0")
+wait(1)
+game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_nametagcolor", "255, 255, 127")
+wait(1)
+game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_nametagcolor", "0, 255, 0")
+wait(1)
+game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_nametagcolor", "0, 85, 127")
+wait(1)
+end
+if getgenv().rainbow == true then do
+    getgenv().rainbow = false
+end
+else
+    getgenv().rainbow = true
+end
 end)
