@@ -4,9 +4,13 @@ local plr = game.Players.LocalPlayer.Character.Humanoid
 local xulu = Flux:Window("xulu", "Ragdoll Testing", Color3.fromRGB(0, 67, 0), Enum.KeyCode.LeftControl)
 local tab = xulu:Tab("Main", "http://www.roblox.com/asset/?id=6023426915")
 local tab2 = xulu:Tab("Misc", "http://www.roblox.com/asset/?id=6023426915")
-tab:Slider("ItemScale", "Changes your item scale", 0, 999,1,function(t)
-    game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_normalscale", t)
-    game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_titanscale", t)
+
+tab:Button("Komischer Kopf dikka", "Ja ist halt komisch nh", function()
+Flux:Notification("Reset dich einfach du Otterkopf", "Okay dikka")
+while true do
+wait()
+game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.avatar.scaleboxev:FireServer(25.0)
+end
 end)
 tab:Button("Anti-Ragdoll", "Anti-Ragdoll, needs to be executed every death", function()
     Flux:Notification("Executed Anti-Ragdoll successfully!", "Okay bro")
@@ -15,18 +19,7 @@ tab:Button("Anti-Ragdoll", "Anti-Ragdoll, needs to be executed every death", fun
     game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.ragdoll.Events.Toggle:FireServer("R", false)
 end
 end)
-tab:Button("SafeZone", "Anti-Ragdoll, needs to be executed every death", function()
-    if getgenv().safezone == false then do
-Flux:Notification("Enabled SafeZone!", "Okay bro")
-    game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_safezone", true)
-    getgenv().safezone = true
-    end
-    else
-Flux:Notification("Disabled SafeZone!", "Okay bro")
-    game:GetService("Players").LocalPlayer.PlayerGui.RTGui.codebase.settings.settingsev:FireServer("settings_safezone", false)
-    getgenv().safezone = false
-    end
-end)
+
 tab2:Slider("WalkSpeed", "Changes your WalkSpeed", 0, 999,1,function(t)
     plr.WalkSpeed = t
 end)
